@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { episodes } from '../data/episodes';
+
+const latest = episodes.slice(-3).reverse();
+
+const platforms = [
+  { name: 'Spotify',        url: 'https://open.spotify.com/show/1ufB0VHLAmanOaUhFY3Z2S',                                                                              icon: '/img/spotify.png'        },
+  { name: 'Apple Podcasts', url: 'https://podcasts.apple.com/us/podcast/t%C3%B4-na-correria-podcast/id1588172818',                                                     icon: '/img/apple-podcasts.png' },
+  { name: 'Amazon Music',   url: 'https://music.amazon.com/podcasts/84a8bac8-2711-4f31-a51f-ec71f253387c/t%C3%B4-na-correria-podcast',                                 icon: '/img/amazon-music.png'   },
+  { name: 'Deezer',         url: 'https://www.deezer.com/br/show/3085892',                                                                                             icon: '/img/deezer.png'         },
+  { name: 'Goodpods',       url: 'https://goodpods.com/pt/podcasts/t%C3%B4-na-correria-podcast-407498',                                                                icon: '/img/goodpods.png'       },
+];
+---
+
+<Layout title="Home" description="Podcast brasileiro sobre corrida de rua com Daniel Rech e Alicino Moura, gravado em Austin, Texas. Mais de 40 episódios sobre treino, corrida e vida ativa.">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden min-h-[90vh] flex items-center justify-center">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#fff5f2] via-[#fff0eb] to-[#f0f4ff] dark:from-[#1a0a0a] dark:via-[#2d0d0d] dark:to-[#1a1a2e]"></div>
+
+    <!-- Decorative orb -->
+    <div
+      class="hero-orb absolute top-20 right-[10%] w-72 h-72 rounded-full opacity-20 pointer-events-none"
+      style="background: radial-gradient(circle, #E8421A, transparent 70%)"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
+      <img
+        src="/img/podcast-logo.png"
+        alt="Tô na Correria Podcast"
+        class="h-28 md:h-36 w-auto mx-auto mb-8 drop-shadow-2xl animate-fade-up"
+      />
+      <h1
+        class="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl mb-6 text-gray-900 dark:text-white leading-tight animate-fade-up"
+        style="text-shadow: 0 4px 24px rgba(232,66,26,0.3), 0 1px 0 rgba(0,0,0,0.1); animation-delay: 0.1s"
+      >
+        Tô na Correria<br /><span class="text-primary">Podcast</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 animate-fade-up" style="animation-delay: 0.2s">
+        Dois brasileiros apaixonados por corrida de rua, vivendo em Austin, Texas.
+        Mais de 40 episódios sobre treino, esporte e vida ativa.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 animate-fade-up" style="animation-delay: 0.3s">
+        <a href="/episodios" class="btn-primary text-base px-8 py-3.5">
+          Ver Episódios
+        </a>
+        <a
+          href="https://open.spotify.com/show/1ufB0VHLAmanOaUhFY3Z2S"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-base border-2 border-gray-700 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-white/50 dark:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all duration-200 hover:-translate-y-0.5"
+        >
+          Ouvir no Spotify
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Episodes -->
+  <section class="py-20 bg-white dark:bg-[#121212] transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-gray-900 dark:text-white">Últimos Episódios</h2>
+      <p class="section-subtitle">Os episódios mais recentes do podcast</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {latest.map((ep, i) => (
+          <article class={`card ep-card-${i + 1}`}>
+            <div class="h-44 overflow-hidden">
+              <img
+                src={ep.thumb}
+                alt={ep.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                onerror="this.src='/img/podcast-logo.png'"
+              />
+            </div>
+            <div class="p-5">
+              <p class="text-xs text-primary font-semibold mb-1">{ep.date} · {ep.duration}</p>
+              <h3 class="font-display font-bold text-base text-gray-900 dark:text-white mb-4 line-clamp-2 leading-snug">
+                {ep.title}
+              </h3>
+              <a
+                href={ep.url}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+                Ouvir no Spotify
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/episodios" class="btn-outline">
+          Ver todos os episódios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms -->
+  <section class="py-20 bg-gray-50 dark:bg-[#0d0d0d] transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-gray-900 dark:text-white">Disponível em</h2>
+      <p class="section-subtitle">Ouça onde preferir</p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        {platforms.map(p => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-white dark:bg-[#1E1E1E] shadow-card dark:shadow-card-dark hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 min-w-[160px]"
+          >
+            <img src={p.icon} alt={p.name} class="w-8 h-8 rounded-lg object-contain flex-shrink-0" />
+            <span class="font-medium text-sm text-gray-700 dark:text-gray-200">{p.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="py-20 bg-white dark:bg-[#121212] transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-display font-extrabold text-3xl md:text-4xl text-gray-900 dark:text-white mb-4" style="text-shadow: 0 2px 8px rgba(0,0,0,0.1)">
+            Conheça as <span class="text-primary">vozes por trás</span> dos microfones
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            Daniel Rech e Alicino Moura — dois brasileiros apaixonados por corrida de rua, unidos por Austin, Texas, e pela vontade de compartilhar experiências sobre esporte e vida ativa.
+          </p>
+          <a href="/sobre" class="btn-primary">
+            Conheça o time
+          </a>
+        </div>
+        <div class="relative">
+          <img
+            src="/img/foto_efeito_juntos.jpeg"
+            alt="Daniel Rech e Alicino Moura"
+            class="rounded-2xl shadow-2xl w-full object-cover max-h-80"
+          />
+          <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-200/20"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

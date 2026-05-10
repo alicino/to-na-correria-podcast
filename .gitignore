@@ -1,0 +1,74 @@
+# ── macOS ────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# ── Editores / IDEs ──────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+
+# ── Node.js ──────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+# package-lock.json NÃO ignorado — npm ci no CI depende dele
+
+# ── Astro ─────────────────────────────────────────
+.astro/
+dist/
+
+# ── Outros builds ────────────────────────────────
+build/
+.cache/
+.parcel-cache/
+
+# ── Arquivos HTML legados (substituídos pelo Astro) ─
+index.html
+sobre.html
+episodios.html
+eventos.html
+ouca.html
+
+# ── CNAME duplicado na raiz (o válido está em assets/) ─
+/CNAME
+
+# ── Variáveis de ambiente ────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Logs ─────────────────────────────────────────
+*.log
+logs/
+
+# ── Arquivos temporários ─────────────────────────
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ── Arquivos de sistema Windows ──────────────────
+desktop.ini
+
+# ── Arquivos de documentação interna ─────────────
+# (manter apenas README.md público)
+CLAUDE.md
+instrucao.md
+requirements.md
+design.md
+tasks.md

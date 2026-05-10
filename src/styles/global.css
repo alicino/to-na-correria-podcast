@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #E8421A;
+    --color-accent: #F5A623;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans transition-colors duration-300;
+    @apply bg-white text-gray-900;
+    @apply dark:bg-[#121212] dark:text-[#E8E8E8];
+  }
+
+  [data-theme="dark"] body {
+    @apply bg-[#121212] text-[#E8E8E8];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white;
+    @apply bg-primary hover:bg-primary-dark transition-all duration-200;
+    @apply hover:shadow-card-hover hover:-translate-y-0.5 active:translate-y-0;
+    background: linear-gradient(135deg, #E8421A, #C0310E);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+    @apply transition-all duration-200 hover:-translate-y-0.5;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-display font-extrabold text-center mb-2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  [data-theme="dark"] .section-heading {
+    text-shadow: 0 2px 16px rgba(232,66,26,0.3), 0 0 40px rgba(232,66,26,0.1);
+  }
+
+  .section-subtitle {
+    @apply text-center text-gray-500 dark:text-gray-400 mb-12;
+  }
+
+  .card {
+    @apply rounded-2xl overflow-hidden transition-all duration-300;
+    @apply bg-[#F8F8F8] dark:bg-[#1E1E1E];
+    @apply shadow-card dark:shadow-card-dark;
+    @apply hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .platform-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300;
+    @apply transition-colors hover:bg-primary hover:text-white;
+  }
+}
+
+/* Navbar active link */
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Hero orb */
+.hero-orb {
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+/* Episode card stagger */
+.ep-card-1 { animation: fadeUp 0.5s ease 0.1s both; }
+.ep-card-2 { animation: fadeUp 0.5s ease 0.2s both; }
+.ep-card-3 { animation: fadeUp 0.5s ease 0.3s both; }
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Countdown timer */
+.countdown-digit {
+  @apply text-3xl font-display font-bold text-primary;
+}

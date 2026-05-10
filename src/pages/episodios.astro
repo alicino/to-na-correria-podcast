@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { episodes } from '../data/episodes';
+
+const EPISODES_PER_PAGE = 5;
+const totalPages = Math.ceil(episodes.length / EPISODES_PER_PAGE);
+---
+
+<Layout
+  title="Episódios"
+  description="Todos os episódios do Tô na Correria Podcast — mais de 40 episódios sobre corrida de rua, treino e vida ativa em Austin, Texas."
+>
+
+  <!-- Page Hero -->
+  <section class="relative overflow-hidden py-20 bg-gradient-to-br from-[#1a0a0a] via-[#2d0d0d] to-[#1a1a2e]">
+    <div
+      class="absolute top-0 right-0 w-80 h-80 rounded-full opacity-10 pointer-events-none hero-orb"
+      style="background: radial-gradient(circle, #E8421A, transparent 70%)"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1
+        class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4"
+        style="text-shadow: 0 4px 24px rgba(232,66,26,0.5)"
+      >
+        Todos os <span class="text-primary">Episódios</span>
+      </h1>
+      <p class="text-gray-300 text-lg">
+        {episodes.length} episódios publicados desde 2021
+      </p>
+    </div>
+  </section>
+
+  <!-- Episode list -->
+  <section class="py-16 bg-white dark:bg-[#121212] transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Episodes container -->
+      <div id="episode-list" class="space-y-4">
+        {episodes.map((ep, i) => (
+          <article
+            class="ep-row flex items-center gap-4 p-4 rounded-2xl bg-[#F8F8F8] dark:bg-[#1E1E1E] shadow-card dark:shadow-card-dark hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200"
+            data-index={i}
+          >
+            <!-- Thumbnail -->
+            <div class="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden">
+              <img
+                src={ep.thumb}
+                alt={ep.title}
+                class="w-full h-full object-cover"
+                onerror="this.src='/img/podcast-logo.png'"
+              />
+            </div>
+
+            <!-- Episode number glow -->
+            <div class="flex-shrink-0 w-12 text-center">
+              <span
+                class="font-display font-extrabold text-lg text-primary"
+                style="text-shadow: 0 0 12px rgba(232,66,26,0.5), 0 2px 4px rgba(0,0,0,0.2)"
+              >
+                {ep.id === 'ep-extra' ? 'EXT' : ep.id.replace('ep', 'EP')}
+              </span>
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 min-w-0">
+              <h3 class="font-semibold text-sm sm:text-base text-gray-900 dark:text-white leading-snug line-clamp-2">
+                {ep.title}
+              </h3>
+              <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                {ep.date} · {ep.duration}
+              </p>
+            </div>
+
+            <!-- Platform link -->
+            <div class="flex-shrink-0">
+              <a
+                href={ep.url}
+                target="_blank"
+                rel="noopener"
+                aria-label={`Ouvir ${ep.title} no Spotify`}
+                class="platform-pill"
+              >
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+                <span class="hidden sm:inline">Spotify</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Paginação de episódios" class="mt-10 flex items-center justify-center gap-2">
+        <button
+          id="btn-prev"
+          class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          disabled
+        >
+          ← Anterior
+        </button>
+        <span id="page-info" class="px-4 py-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
+          Página 1 de {totalPages}
+        </span>
+        <button
+          id="btn-next"
+          class="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+        >
+          Próxima →
+        </button>
+      </nav>
+
+    </div>
+  </section>
+
+</Layout>
+
+<script define:vars={{ EPISODES_PER_PAGE, totalPages }}>
+  let currentPage = 1;
+  const rows = document.querySelectorAll('.ep-row');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const pageInfo = document.getElementById('page-info');
+
+  function renderPage(page) {
+    const start = (page - 1) * EPISODES_PER_PAGE;
+    const end = start + EPISODES_PER_PAGE;
+
+    rows.forEach((row, i) => {
+      row.style.display = (i >= start && i < end) ? '' : 'none';
+    });
+
+    if (pageInfo) pageInfo.textContent = `Página ${page} de ${totalPages}`;
+    if (btnPrev) btnPrev.disabled = page === 1;
+    if (btnNext) btnNext.disabled = page === totalPages;
+  }
+
+  btnPrev?.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage(currentPage);
+      document.getElementById('episode-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  btnNext?.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPage(currentPage);
+      document.getElementById('episode-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  renderPage(1);
+</script>

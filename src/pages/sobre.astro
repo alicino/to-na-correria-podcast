@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const hosts = [
+  {
+    name: 'Daniel Rech',
+    role: 'Educador Físico',
+    bio: 'Educador Físico apaixonado por corrida de rua e esportes de resistência. Referência técnica do podcast, traz conhecimento científico sobre treino e performance nas conversas com Alicino.',
+    img: '/img/daniel-profile.png',
+    alt: 'Daniel Rech — Educador Físico',
+  },
+  {
+    name: 'Alicino Moura',
+    role: 'Corredor Amador',
+    bio: 'Corredor amador e co-fundador do Tô na Correria Podcast. Representa o lado do corredor de rua do dia a dia — aquele que treina cedo, equilibra trabalho, família e quilometragem.',
+    img: '/img/alicino-profile.jpg',
+    alt: 'Alicino Moura — Corredor Amador',
+  },
+];
+---
+
+<Layout
+  title="Sobre Nós"
+  description="Conheça Daniel Rech e Alicino Moura, os apresentadores do Tô na Correria Podcast, dois brasileiros apaixonados por corrida de rua vivendo em Austin, Texas."
+>
+
+  <!-- Page Hero -->
+  <section class="relative overflow-hidden py-20 bg-gradient-to-br from-[#1a0a0a] via-[#2d0d0d] to-[#1a1a2e]">
+    <div
+      class="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none hero-orb"
+      style="background: radial-gradient(circle, #E8421A, transparent 70%)"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1
+        class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4"
+        style="text-shadow: 0 4px 24px rgba(232,66,26,0.5)"
+      >
+        Conheça as <span class="text-primary">vozes por trás</span><br class="hidden sm:block" /> dos microfones
+      </h1>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        Dois brasileiros em Austin, Texas, unidos pela corrida de rua.
+      </p>
+    </div>
+  </section>
+
+  <!-- Hosts -->
+  <section class="py-20 bg-white dark:bg-[#121212] transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {hosts.map(host => (
+          <article class="card group overflow-visible">
+            <div class="h-[420px] sm:h-[460px] overflow-hidden rounded-t-2xl">
+              <img
+                src={host.img}
+                alt={host.alt}
+                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-semibold text-primary uppercase tracking-widest mb-1">{host.role}</p>
+              <h2 class="font-display font-bold text-2xl text-gray-900 dark:text-white mb-3">{host.name}</h2>
+              <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{host.bio}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- História do podcast -->
+  <section class="py-20 bg-gray-50 dark:bg-[#0d0d0d] transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Título centralizado acima das colunas -->
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-gray-900 dark:text-white text-center mb-10 leading-tight"
+        style="text-shadow: 0 2px 8px rgba(0,0,0,0.1)">
+        A história do <span class="text-primary">Tô na Correria</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+        <!-- Foto -->
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="/img/foto_efeito_juntos.jpeg"
+              alt="Daniel Rech e Alicino Moura juntos em Austin, TX"
+              class="w-full object-cover max-h-[480px]"
+            />
+          </div>
+          <!-- Badge decorativo -->
+          <div class="absolute -bottom-4 -right-4 w-20 h-20 rounded-2xl bg-primary flex flex-col items-center justify-center shadow-lg rotate-3">
+            <span class="font-display font-extrabold text-white text-xl leading-none">40+</span>
+            <span class="text-white/80 text-[10px] font-semibold uppercase tracking-wide mt-0.5">Eps</span>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div>
+          <div class="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p>
+              A ideia surgiu de uma conversa como muitas outras: dois amigos falando sobre corrida depois de um treino em Austin. Mas essa conversa tinha algo especial — a combinação única de um olhar técnico e um olhar apaixonado pelo esporte.
+            </p>
+            <p>
+              Em setembro de 2021, Daniel e Alicino gravaram o primeiro episódio e o Tô na Correria Podcast chegou ao mundo. Desde então, mais de 40 episódios foram publicados, com convidados especiais, bate-papos sobre treino, saúde, equipamentos, provas e muito mais.
+            </p>
+            <p>
+              O podcast é para quem ama correr — ou quer começar. Para quem corre na esteira ou na rua, no asfalto ou na trilha, 5km ou 42km. A corrida une, e o Tô na Correria é o espaço dessa união.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="/ouca" class="btn-primary">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3v9.28a4 4 0 10 1.83 0V3h-1.83zM12 19a2 2 0 110-4 2 2 0 010 4z"/>
+              </svg>
+              Ouvir o Podcast
+            </a>
+          </div>
+
+          <!-- Stats -->
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <div class="text-center p-4 rounded-xl bg-white dark:bg-[#1E1E1E] shadow-card dark:shadow-card-dark">
+              <div class="font-display font-extrabold text-2xl text-primary">40+</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Episódios</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white dark:bg-[#1E1E1E] shadow-card dark:shadow-card-dark">
+              <div class="font-display font-extrabold text-2xl text-primary">2021</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Fundado em</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white dark:bg-[#1E1E1E] shadow-card dark:shadow-card-dark">
+              <div class="font-display font-extrabold text-2xl text-primary">6</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Plataformas</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Training map -->
+  <section class="py-20 bg-white dark:bg-[#121212] transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-gray-900 dark:text-white mb-2">Nosso local de treino</h2>
+      <p class="section-subtitle mb-8">
+        Olson Meadows Park — 4200 Brushy Creek Rd, Austin, TX 78717
+      </p>
+      <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-800">
+        <iframe
+          title="Olson Meadows Park, Austin TX"
+          src="https://maps.google.com/maps?q=4200+Brushy+Creek+Rd,+Austin,+TX+78717&output=embed"
+          width="100%"
+          height="400"
+          style="border:0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+</Layout>

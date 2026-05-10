@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const platforms = [
+  { name: 'Spotify',        description: 'Ouça no Spotify',        url: 'https://open.spotify.com/show/1ufB0VHLAmanOaUhFY3Z2S',                                                                 icon: '/img/spotify.png'        },
+  { name: 'Apple Podcasts', description: 'Ouça na Apple Podcasts', url: 'https://podcasts.apple.com/us/podcast/t%C3%B4-na-correria-podcast/id1588172818',                                        icon: '/img/apple-podcasts.png' },
+  { name: 'Amazon Music',   description: 'Ouça na Amazon Music',   url: 'https://music.amazon.com/podcasts/84a8bac8-2711-4f31-a51f-ec71f253387c/t%C3%B4-na-correria-podcast',                    icon: '/img/amazon-music.png'   },
+  { name: 'Amazon (Brasil)', description: 'Ouça na Amazon BR',     url: 'https://www.amazon.com.br/T%C3%B4-na-Correria-Podcast/dp/B0CG47BGMQ',                                                  icon: '/img/amazon-brasil.png'  },
+  { name: 'Deezer',         description: 'Ouça no Deezer',         url: 'https://www.deezer.com/br/show/3085892',                                                                                icon: '/img/deezer.png'         },
+  { name: 'Goodpods',       description: 'Ouça no Goodpods',       url: 'https://goodpods.com/pt/podcasts/t%C3%B4-na-correria-podcast-407498',                                                   icon: '/img/goodpods.png'       },
+];
+---
+
+<Layout
+  title="Ouça o Podcast"
+  description="Ouça o Tô na Correria Podcast no Spotify, Apple Podcasts, Amazon Music, Deezer e Goodpods."
+>
+
+  <!-- Page Hero -->
+  <section class="relative overflow-hidden py-20 bg-gradient-to-br from-[#1a0a0a] via-[#2d0d0d] to-[#1a1a2e]">
+    <div
+      class="absolute top-0 right-0 w-80 h-80 rounded-full opacity-10 pointer-events-none hero-orb"
+      style="background: radial-gradient(circle, #E8421A, transparent 70%)"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1
+        class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4"
+        style="text-shadow: 0 4px 24px rgba(232,66,26,0.5)"
+      >
+        Ouça o <span class="text-primary">Podcast</span>
+      </h1>
+      <p class="text-gray-300 text-lg max-w-xl mx-auto">
+        Disponível nas principais plataformas de streaming. Escolha a sua favorita e comece a ouvir agora.
+      </p>
+    </div>
+  </section>
+
+  <!-- Platform cards -->
+  <section class="py-20 bg-white dark:bg-[#121212] transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-gray-900 dark:text-white mb-2">Plataformas</h2>
+      <p class="section-subtitle">Clique para abrir diretamente</p>
+
+      <div class="grid grid-cols-3 gap-5 mt-8 max-w-3xl mx-auto">
+        {platforms.map(p => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener"
+            class="group flex flex-col items-center gap-5 p-7 rounded-2xl bg-[#F8F8F8] dark:bg-[#1E1E1E] shadow-card dark:shadow-card-dark hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-200 text-center"
+          >
+            <div class="w-20 h-20 rounded-2xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110 duration-200 bg-gray-100 dark:bg-gray-800">
+              <img src={p.icon} alt={p.name} class="w-14 h-14 object-contain" />
+            </div>
+            <div>
+              <p class="font-semibold text-base text-gray-900 dark:text-white leading-tight">{p.name}</p>
+              <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">{p.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Spotify embed player -->
+  <section class="py-16 bg-gray-50 dark:bg-[#0d0d0d] transition-colors">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="section-heading text-gray-900 dark:text-white mb-2">Player Spotify</h2>
+      <p class="section-subtitle mb-8">Ouça direto aqui</p>
+      <div class="rounded-2xl overflow-hidden shadow-xl">
+        <iframe
+          title="Tô na Correria Podcast — Spotify"
+          src="https://open.spotify.com/embed/show/1ufB0VHLAmanOaUhFY3Z2S"
+          width="100%"
+          height="352"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSS -->
+  <section class="py-16 bg-white dark:bg-[#121212] transition-colors">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Prefere RSS?</p>
+      <a
+        href="https://anchor.fm/s/6d5ec654/podcast/rss"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+        </svg>
+        Feed RSS — anchor.fm/s/6d5ec654/podcast/rss
+      </a>
+    </div>
+  </section>
+
+</Layout>
