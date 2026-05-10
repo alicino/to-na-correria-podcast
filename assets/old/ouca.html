@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Ouça o Podcast — Tô na Correria Podcast</title>
+  <meta name="description" content="Ouça o Tô na Correria Podcast no Spotify, Apple Podcasts, Deezer, Amazon Music e muito mais. Disponível em todas as principais plataformas." />
+  <meta name="keywords" content="ouvir Tô na Correria Podcast, Spotify podcast corrida, Apple Podcasts corrida de rua" />
+  <meta name="author" content="Tô na Correria Podcast" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ouça o Tô na Correria Podcast" />
+  <meta property="og:description" content="Disponível no Spotify, Apple Podcasts, Deezer, Amazon Music e muito mais." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/img/favicon.jpg" type="image/jpeg" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    /* ── Page Hero ─────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+      padding: 3.5rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -5%;
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(30,215,96,0.1) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -25%; left: -5%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(232,66,26,0.07) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+
+    .page-hero__inner { position: relative; z-index: 1; }
+
+    .page-hero__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(30,215,96,0.1);
+      color: #1DB954;
+      border: 1px solid rgba(30,215,96,0.25);
+      border-radius: 50px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero h1 span { color: var(--color-primary); }
+
+    .page-hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Listen Section ─────────────────────────────────── */
+    .listen-section {
+      padding: 4rem 0 5rem;
+    }
+
+    .listen-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ── Spotify Player ─────────────────────────────────── */
+    .spotify-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px var(--shadow);
+      position: sticky;
+      top: 88px; /* below fixed navbar */
+    }
+
+    .spotify-panel__header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 1.1rem 1.4rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spotify-panel__logo {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .spotify-panel__title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .spotify-panel__subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .spotify-panel__embed {
+      padding: 0;
+    }
+
+    .spotify-panel__embed iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* ── Platforms Column ───────────────────────────────── */
+    .platforms-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .platforms-col__heading {
+      margin-bottom: 0.5rem;
+    }
+
+    .platforms-col__heading h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+    }
+
+    .platforms-col__heading p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Platform card big */
+    .platform-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.3rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .platform-btn:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 24px var(--shadow-strong);
+      border-color: var(--color-primary);
+    }
+
+    .platform-btn__icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .platform-btn__text {
+      flex: 1;
+    }
+
+    .platform-btn__name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+
+    .platform-btn__desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .platform-btn__arrow {
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .platform-btn:hover .platform-btn__arrow {
+      transform: translateX(4px);
+      color: var(--color-primary);
+    }
+
+    /* Platform accent colors */
+    .platform-btn--spotify  .platform-btn__icon { background: #1DB954; }
+    .platform-btn--apple    .platform-btn__icon { background: #FC3C44; }
+    .platform-btn--amazon   .platform-btn__icon { background: #232F3E; }
+    .platform-btn--amzmusic .platform-btn__icon { background: #00A8E0; }
+    .platform-btn--deezer   .platform-btn__icon { background: #A238FF; }
+    .platform-btn--goodpods .platform-btn__icon { background: #FFD000; }
+
+    /* RSS note */
+    .rss-note {
+      background: rgba(232,66,26,0.05);
+      border: 1px solid rgba(232,66,26,0.15);
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .rss-note a {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .rss-note a:hover { text-decoration: underline; }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .listen-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .spotify-panel {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════ -->
+  <header class="navbar" role="banner">
+    <div class="container navbar__inner">
+
+      <a href="index.html" class="navbar__logo" aria-label="Tô na Correria Podcast — Página Inicial">
+        <img src="/img/podcast-logo.png" alt="Logo Tô na Correria Podcast" />
+        <span class="navbar__logo-text">Tô na<br><span>Correria</span></span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navegação principal">
+        <a href="index.html"     class="navbar__link"        id="nav-home">Home</a>
+        <a href="sobre.html"     class="navbar__link"        id="nav-sobre">Sobre nós</a>
+        <a href="episodios.html" class="navbar__link"        id="nav-episodios">Episódios</a>
+        <a href="eventos.html"   class="navbar__link"        id="nav-eventos">Eventos</a>
+        <a href="ouca.html"      class="navbar__link navbar__link--cta active" id="nav-ouca">🎧 Ouça o Podcast</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">🌙</button>
+        <button id="hamburger" class="navbar__hamburger" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="navbar__mobile" id="mobile-nav" aria-label="Navegação móvel">
+      <a href="index.html"     class="navbar__link">Home</a>
+      <a href="sobre.html"     class="navbar__link">Sobre nós</a>
+      <a href="episodios.html" class="navbar__link">Episódios</a>
+      <a href="eventos.html"   class="navbar__link">Eventos</a>
+      <a href="mailto:contato@tonacorreria.com.br" class="navbar__link">Contato</a>
+      <a href="ouca.html"      class="navbar__link active navbar__link--cta">🎧 Ouça o Podcast</a>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN
+  ═══════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── Page Hero ──────────────────────────────────── -->
+    <section class="page-hero" aria-label="Cabeçalho — Ouça o Podcast">
+      <div class="container page-hero__inner">
+        <div class="page-hero__label">🎧 Disponível em toda parte</div>
+        <h1>Ouça o <span>Tô na Correria</span></h1>
+        <p>
+          Escute diretamente pelo Spotify ou escolha sua plataforma favorita.
+          Disponível em 5 plataformas — de graça!
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Listen Layout ──────────────────────────────── -->
+    <section class="listen-section" aria-labelledby="listen-heading">
+      <div class="container">
+
+        <div class="listen-layout">
+
+          <!-- ── Spotify Embed Player ─── -->
+          <div class="spotify-panel" aria-label="Player do Spotify">
+            <div class="spotify-panel__header">
+              <!-- Spotify logo SVG -->
+              <svg class="spotify-panel__logo" viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+              <div>
+                <div class="spotify-panel__title">Spotify Player</div>
+                <div class="spotify-panel__subtitle">Tô na Correria Podcast — todos os episódios</div>
+              </div>
+            </div>
+            <div class="spotify-panel__embed">
+              <iframe
+                id="spotify-embed"
+                title="Tô na Correria Podcast no Spotify"
+                src="https://open.spotify.com/embed/show/1ufB0VHLAmanOaUhFY3Z2S?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div><!-- /.spotify-panel -->
+
+          <!-- ── Platform Links ─── -->
+          <div class="platforms-col">
+
+            <div class="platforms-col__heading">
+              <h2 id="listen-heading">Escolha sua plataforma</h2>
+              <p>Também disponível fora do Spotify</p>
+            </div>
+
+            <a
+              href="https://open.spotify.com/show/1ufB0VHLAmanOaUhFY3Z2S"
+              target="_blank" rel="noopener noreferrer"
+              class="platform-btn platform-btn--spotify"
+              id="listen-spotify"
+              aria-label="Ouvir no Spotify (abre em nova aba)">
+              <div class="platform-btn__icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              </div>
+              <div class="platform-btn__text">
+                <div class="platform-btn__name">Spotify</div>
+                <div class="platform-btn__desc">Mais popular • player integrado acima</div>
+              </div>
+              <span class="platform-btn__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a
+              href="https://podcasts.apple.com/us/podcast/t%C3%B4-na-correria-podcast/id1588172818"
+              target="_blank" rel="noopener noreferrer"
+              class="platform-btn platform-btn--apple"
+              id="listen-apple"
+              aria-label="Ouvir no Apple Podcasts (abre em nova aba)">
+              <div class="platform-btn__icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12.002 1.2c-5.92 0-10.802 4.88-10.802 10.8s4.882 10.8 10.802 10.8c5.918 0 10.8-4.88 10.8-10.8S17.92 1.2 12.002 1.2zm0 1.44c5.17 0 9.36 4.19 9.36 9.36s-4.19 9.36-9.36 9.36c-5.172 0-9.362-4.19-9.362-9.36S6.83 2.64 12.002 2.64zm.002 2.878c-2.374 0-4.802 1.63-4.802 5.39 0 1.04.228 1.87.6 2.56-.044.226-.07.46-.07.7 0 1.61.99 2.72 2.44 2.72.54 0 1.027-.17 1.427-.45.12.03.244.046.372.046.13 0 .254-.016.374-.046.4.28.887.45 1.426.45 1.45 0 2.44-1.11 2.44-2.72 0-.24-.026-.474-.07-.7.372-.69.6-1.52.6-2.56 0-3.76-2.43-5.39-4.737-5.39zm0 1.21c1.93 0 3.53 1.33 3.53 4.18 0 .89-.19 1.6-.498 2.144a2.09 2.09 0 0 0-.13.282c.06.24.094.49.094.748 0 .86-.517 1.512-1.24 1.512-.27 0-.52-.088-.72-.236a1.97 1.97 0 0 1-.598.096c-.212 0-.414-.034-.6-.094a1.15 1.15 0 0 1-.718.234c-.722 0-1.24-.652-1.24-1.512 0-.258.034-.51.094-.748a2.09 2.09 0 0 0-.13-.282C9.34 12.168 9.15 11.46 9.15 10.57c0-2.85 1.6-4.18 3.606-4.18l-.752-.66zm-.002.662c-1.7 0-3.094 1.096-3.094 3.518 0 .832.2 1.494.524 1.968.06.088.1.19.116.298-.07.22-.11.452-.11.692 0 .572.284 1.012.84 1.012.22 0 .42-.07.586-.19.16.08.336.124.52.124.183 0 .36-.044.52-.124.165.12.366.19.586.19.556 0 .84-.44.84-1.012 0-.24-.04-.472-.11-.692a.566.566 0 0 1 .116-.298c.324-.474.524-1.136.524-1.968 0-2.422-1.395-3.518-3.358-3.518z"/></svg>
+              </div>
+              <div class="platform-btn__text">
+                <div class="platform-btn__name">Apple Podcasts</div>
+                <div class="platform-btn__desc">Nativo em iPhone e iPad</div>
+              </div>
+              <span class="platform-btn__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a
+              href="https://music.amazon.com/podcasts/84a8bac8-2711-4f31-a51f-ec71f253387c/t%C3%B4-na-correria-podcast"
+              target="_blank" rel="noopener noreferrer"
+              class="platform-btn platform-btn--amzmusic"
+              id="listen-amazon-music"
+              aria-label="Ouvir no Amazon Music (abre em nova aba)">
+              <div class="platform-btn__icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M15.93 17.09c-2.17 1.6-5.33 2.45-8.04 2.45-3.8 0-7.23-1.4-9.82-3.74-.2-.18-.02-.43.22-.29 2.79 1.63 6.24 2.61 9.8 2.61 2.4 0 5.04-.5 7.47-1.53.37-.15.68.24.37.5zm1.07-1.22c-.28-.36-1.85-.17-2.56-.08-.21.03-.24-.16-.05-.29 1.25-.88 3.31-.63 3.55-.33.24.3-.06 2.37-1.24 3.36-.18.15-.35.07-.27-.13.27-.66.87-2.17.57-2.53zM14.27 4.63V3.25c0-.2.16-.34.34-.34h5.98c.2 0 .35.14.35.34v1.18c0 .2-.17.46-.47.87l-3.1 4.43c1.15-.03 2.37.14 3.41.73.23.13.3.34.32.53v1.47c0 .2-.22.43-.45.31-1.88-1-4.38-1.07-6.46.01-.21.12-.44-.1-.44-.3V10.9c0-.22 0-.6.22-.94l3.59-5.15h-3.13c-.2 0-.35-.14-.35-.34zm-10.2 8.86H2.6c-.18-.01-.32-.14-.34-.31V3.26c0-.2.16-.35.36-.35h1.37c.19.01.34.15.35.33v1.32h.03c.36-1.27 1.04-1.87 1.95-1.87.93 0 1.51.6 1.93 1.87.36-1.27 1.17-1.87 2.04-1.87.62 0 1.3.26 1.71.83.47.64.37 1.57.37 2.38v4.77c0 .2-.16.35-.36.35H10.6c-.19-.01-.34-.17-.34-.35V6.42c0-.32.03-1.12-.04-1.42-.12-.5-.42-.64-.82-.64-.34 0-.69.23-.83.59-.14.36-.13.96-.13 1.47v5.25c0 .2-.16.35-.36.35zm-3.2 0c-.19-.01-.34-.17-.34-.35V6.42c0-1.03-.18-2.59-1.35-2.59-.42 0-.8.3-.94.77-.16.5-.14 1.09-.14 1.44v5.64c0 .2-.16.35-.36.35H.68c-.19-.01-.34-.17-.34-.35V3.26c0-.2.16-.35.36-.35H2a.36.36 0 0 1 .36.3v1.27h.03c.36-1.23 1.06-1.87 2-1.87.63 0 1.28.22 1.68.84.45.66.35 1.54.35 2.34v6.34c0 .2-.16.35-.36.35z"/></svg>
+              </div>
+              <div class="platform-btn__text">
+                <div class="platform-btn__name">Amazon Music</div>
+                <div class="platform-btn__desc">Incluso no Amazon Prime</div>
+              </div>
+              <span class="platform-btn__arrow" aria-hidden="true">→</span>
+            </a>
+
+
+
+            <a
+              href="https://www.deezer.com/br/show/3085892"
+              target="_blank" rel="noopener noreferrer"
+              class="platform-btn platform-btn--deezer"
+              id="listen-deezer"
+              aria-label="Ouvir no Deezer (abre em nova aba)">
+              <div class="platform-btn__icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M18.81 4.16v1.76H24V4.16zm0 4.8v1.75H24V8.96zm0 4.8v1.76H24v-1.76zm0 4.8v1.76H24v-1.76zM12.22 13.76v1.76h5.19v-1.76zm0 4.8v1.76h5.19v-1.76zM5.63 18.56v1.76h5.19v-1.76zM0 18.56v1.76h4.83v-1.76z"/></svg>
+              </div>
+              <div class="platform-btn__text">
+                <div class="platform-btn__name">Deezer</div>
+                <div class="platform-btn__desc">Alternativa francesa e popular no Brasil</div>
+              </div>
+              <span class="platform-btn__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a
+              href="https://goodpods.com/pt/podcasts/t%C3%B4-na-correria-podcast-407498"
+              target="_blank" rel="noopener noreferrer"
+              class="platform-btn platform-btn--goodpods"
+              id="listen-goodpods"
+              aria-label="Ouvir no Goodpods (abre em nova aba)">
+              <div class="platform-btn__icon" aria-hidden="true">
+                <span style="font-size:1.5rem">🎙️</span>
+              </div>
+              <div class="platform-btn__text">
+                <div class="platform-btn__name">Goodpods</div>
+                <div class="platform-btn__desc">Comunidade de podcast lovers</div>
+              </div>
+              <span class="platform-btn__arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- RSS note -->
+            <div class="rss-note" role="note">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--color-primary)" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+              <span>Usa um app de podcast personalizado?
+                <a href="https://anchor.fm/s/6d5ec654/podcast/rss" target="_blank" rel="noopener noreferrer" id="rss-link">Copie o RSS Feed</a>
+                e importe no seu app favorito.
+              </span>
+            </div>
+
+          </div><!-- /.platforms-col -->
+
+        </div><!-- /.listen-layout -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="/img/podcast-logo.png" alt="Logo Tô na Correria Podcast" />
+          <p>Podcast brasileiro sobre corrida de rua gravado em Austin, Texas. Dois corredores, muitas histórias e um amor pela corrida.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Navegação</h4>
+          <a href="index.html">Home</a>
+          <a href="sobre.html">Sobre nós</a>
+          <a href="episodios.html">Episódios</a>
+          <a href="eventos.html">Eventos</a>
+          <a href="ouca.html">Ouça o Podcast</a>
+          <a href="mailto:contato@tonacorreria.com.br">Contato</a>
+        </div>
+        <div class="footer__col">
+          <h4>Siga-nos</h4>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/tonacorreriapodcast" target="_blank" rel="noopener noreferrer" class="footer__social-link" id="footer-facebook" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.instagram.com/tonacorreriapodcast/" target="_blank" rel="noopener noreferrer" class="footer__social-link" id="footer-instagram" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.strava.com/clubs/986647" target="_blank" rel="noopener noreferrer" class="footer__social-link" id="footer-strava" aria-label="Strava"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg></a>
+            <a href="https://anchor.fm/s/6d5ec654/podcast/rss" target="_blank" rel="noopener noreferrer" class="footer__social-link footer__social-link--rss" id="footer-rss" aria-label="Feed RSS"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg></a>
+          </div>
+          <br />
+          <a href="mailto:contato@tonacorreria.com.br" id="footer-email">✉️ contato@tonacorreria.com.br</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2021–2026 Tô na Correria Podcast. Todos os direitos reservados.</p>
+        <a href="https://anchor.fm/s/6d5ec654/podcast/rss" target="_blank" rel="noopener noreferrer" id="footer-rss-link" aria-label="Feed RSS"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align:middle;margin-right:4px"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg> Feed RSS</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════════ -->
+  <script>
+    /* ── Dark / Light Mode ──────────────────────────────── */
+    const htmlEl      = document.documentElement;
+    const toggleBtn   = document.getElementById('theme-toggle');
+    const STORAGE_KEY = 'tnc-theme';
+
+    function applyTheme(theme) {
+      htmlEl.setAttribute('data-theme', theme);
+      toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+      toggleBtn.setAttribute('aria-label',
+        theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
+
+      // Switch Spotify embed theme (0=dark, 1=light — reversed from our naming)
+      const embed = document.getElementById('spotify-embed');
+      if (embed) {
+        const base = 'https://open.spotify.com/embed/show/1ufB0VHLAmanOaUhFY3Z2S?utm_source=generator&theme=';
+        embed.src = base + (theme === 'dark' ? '0' : '1');
+      }
+    }
+
+    const savedTheme  = localStorage.getItem(STORAGE_KEY);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    toggleBtn.addEventListener('click', () => {
+      const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem(STORAGE_KEY, next);
+    });
+
+    /* ── Mobile Hamburger ───────────────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── Navbar shadow on scroll ────────────────────────── */
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.boxShadow = window.scrollY > 10
+        ? '0 2px 20px rgba(0,0,0,0.12)'
+        : 'none';
+    }, { passive: true });
+  </script>
+</body>
+</html>

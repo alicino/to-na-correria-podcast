@@ -37,12 +37,12 @@ build/
 .cache/
 .parcel-cache/
 
-# ── Arquivos HTML legados (substituídos pelo Astro) ─
-index.html
-sobre.html
-episodios.html
-eventos.html
-ouca.html
+# ── Arquivos HTML legados na raiz (substituídos pelo Astro) ─
+/index.html
+/sobre.html
+/episodios.html
+/eventos.html
+/ouca.html
 
 # ── CNAME duplicado na raiz (o válido está em assets/) ─
 /CNAME
