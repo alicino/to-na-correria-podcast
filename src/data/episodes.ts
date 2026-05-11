@@ -49,7 +49,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep03',
-    title: 'Quando a cabeção não ajuda. O famoso mindset de corredor',
+    title: 'Quando a cabeça não ajuda. O famoso mindset de corredor',
     url: 'https://open.spotify.com/episode/6AP44hLslxD4etToxknpmf',
     date: '18/Out/2021',
     duration: '44 min 05 seg',
