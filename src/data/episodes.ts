@@ -25,7 +25,7 @@ function thumb(id: string): string {
 export const episodes: Episode[] = [
   {
     id: 'ep00',
-    title: 'Ep00 - O Mundo da Corrida na vida de dois corredores e o Tô na Correria Podcast',
+    title: 'O Mundo da Corrida na vida de dois corredores e o Tô na Correria Podcast',
     url: 'https://open.spotify.com/episode/54zO5y6CkfbhHcLZekNw5y',
     date: '28/Set/2021',
     duration: '40 min 37 seg',
@@ -33,7 +33,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep01',
-    title: 'Ep01 As corridas no Texas estão voltando! Tô na Correria Podcast',
+    title: 'As corridas no Texas estão voltando!',
     url: 'https://open.spotify.com/episode/0RPNdWuFNLwR70q2S6qD4v',
     date: '02/Out/2021',
     duration: '42 min 24 seg',
@@ -41,7 +41,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep02',
-    title: 'Ep02 Tendências da Corrida de Rua',
+    title: 'Tendências da Corrida de Rua',
     url: 'https://open.spotify.com/episode/1xAXdiKqlNZHGDmluvVBgc',
     date: '11/Out/2021',
     duration: '43 min 23 seg',
@@ -49,7 +49,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep03',
-    title: 'Ep03 Quando a cabeção não ajuda. O famoso mindset de corredor',
+    title: 'Quando a cabeção não ajuda. O famoso mindset de corredor',
     url: 'https://open.spotify.com/episode/6AP44hLslxD4etToxknpmf',
     date: '18/Out/2021',
     duration: '44 min 05 seg',
@@ -57,7 +57,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep04',
-    title: 'Ep04 As estórias que todo corredor de rua tem na sua vida esportiva',
+    title: 'As estórias que todo corredor de rua tem na sua vida esportiva',
     url: 'https://open.spotify.com/episode/0JAgIIHCXbMttFu7ISuxSG',
     date: '25/Out/2021',
     duration: '54 min 30 seg',
@@ -65,7 +65,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep05',
-    title: 'Ep05 Correr uma Maratona. Quando é o momento certo?',
+    title: 'Correr uma Maratona. Quando é o momento certo?',
     url: 'https://open.spotify.com/episode/54BEJgOjlwzSpHP7KEzyN8',
     date: '29/Out/2021',
     duration: '39 min 50 seg',
@@ -73,7 +73,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep06',
-    title: 'Ep06 Quero (re)começar a correr, mas não consigo! Esquecendo o sofá e indo para o treino.',
+    title: 'Quero (re)começar a correr, mas não consigo! Esquecendo o sofá e indo para o treino.',
     url: 'https://open.spotify.com/episode/2Hr6CxVwxe39QlNWQgdiOP',
     date: '05/Nov/2021',
     duration: '38 min 14 seg',
@@ -81,7 +81,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep07',
-    title: 'Ep07 A Experiência da Primeira Meia e Maratona. Bate-papo com convidados',
+    title: 'A Experiência da Primeira Meia e Maratona. Bate-papo com convidados',
     url: 'https://open.spotify.com/episode/2y31AKa2LRnIrc3Wdjzlod',
     date: '12/Nov/2021',
     duration: '51 min 15 seg',
@@ -89,7 +89,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep08',
-    title: 'Ep08 Turistando pelos USA? Saiba como aproveitar e correr uma prova na viagem',
+    title: 'Turistando pelos USA? Saiba como aproveitar e correr uma prova na viagem',
     url: 'https://open.spotify.com/episode/5YLyOYYCmVXSlknk2RugoE',
     date: '19/Nov/2021',
     duration: '30 min 01 seg',
@@ -97,7 +97,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep09',
-    title: 'Ep09 Tem Brasileiro no Mundial do Ironman! Conheça nosso representante',
+    title: 'Tem Brasileiro no Mundial do Ironman! Conheça nosso representante',
     url: 'https://open.spotify.com/episode/0jnL6ZSvQDGenBNUJ1PYnf',
     date: '26/Nov/2021',
     duration: '1 hr 15 min',
@@ -105,7 +105,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep10',
-    title: 'Ep10 O que é a tal da Individualidade Biológica? Vamos entender',
+    title: 'O que é a tal da Individualidade Biológica? Vamos entender',
     url: 'https://open.spotify.com/episode/3om98a0je8dmEjMVjm4u93',
     date: '03/Dez/2021',
     duration: '34 min 18 seg',
@@ -113,7 +113,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep11',
-    title: 'Ep11 Vamos nos planejar para o próximo ano?',
+    title: 'Vamos nos planejar para o próximo ano?',
     url: 'https://open.spotify.com/episode/7lgtHkNBySRlyOGHeDDf9q',
     date: '10/Dez/2021',
     duration: '27 min 32 seg',
@@ -121,7 +121,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep12',
-    title: 'Ep12 Corrida, Família e Trabalho - com Dalila Priester',
+    title: 'Corrida, Família e Trabalho - com Dalila Priester',
     url: 'https://open.spotify.com/episode/1LYWcFZH7HOuGzkiosbiJ7',
     date: '17/Dez/2021',
     duration: '53 min 19 seg',
@@ -129,7 +129,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep13',
-    title: 'Ep13 As Metas de 2022 e Convite ao nosso Ouvinte',
+    title: 'As Metas de 2022 e Convite ao nosso Ouvinte',
     url: 'https://open.spotify.com/episode/5DT5zQA65yLiK4nN4xDNWw',
     date: '24/Dez/2021',
     duration: '30 min 42 seg',
@@ -137,7 +137,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep14',
-    title: 'Ep14 Áudio dos Ouvintes e as Metas para 2022',
+    title: 'Áudio dos Ouvintes e as Metas para 2022',
     url: 'https://open.spotify.com/episode/00g7w60fgJHTJCEKy5Crju',
     date: '31/Dez/2021',
     duration: '49 min 30 seg',
@@ -145,7 +145,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep15',
-    title: 'Ep15 Como Treinar nas Férias',
+    title: 'Como Treinar nas Férias',
     url: 'https://open.spotify.com/episode/6LkSea5D7hT5Jsy8JOCFaq',
     date: '07/Jan/2022',
     duration: '17 min 28 seg',
@@ -153,7 +153,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep16',
-    title: 'Ep16 Como Treinar para as Provas. Vc realmente sabe como se preparar?',
+    title: 'Como Treinar para as Provas. Você realmente sabe como se preparar?',
     url: 'https://open.spotify.com/episode/1kQNE5UYvQxBVxII038YGE',
     date: '14/Jan/2022',
     duration: '33 min 34 seg',
@@ -161,7 +161,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep17',
-    title: 'Ep17 Asfalto vs Trilha. As características de cada terrenos que faz a diferença',
+    title: 'Asfalto vs Trilha. As características de cada terreno que faz a diferença',
     url: 'https://open.spotify.com/episode/5Z9xW87VPpqdxuaaqk9hz7',
     date: '21/Jan/2022',
     duration: '26 min 21 seg',
@@ -169,7 +169,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep18',
-    title: 'Ep18 Como Melhorar o Pace da Corrida - com Thiago Menuci',
+    title: 'Como Melhorar o Pace da Corrida - com Thiago Menuci',
     url: 'https://open.spotify.com/episode/5fm07HLXGPb4HOJGGMow7X',
     date: '28/Jan/2022',
     duration: '52 min 43 seg',
@@ -177,7 +177,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep19',
-    title: 'Ep19 Princípio da Sobrecarga',
+    title: 'Princípio da Sobrecarga',
     url: 'https://open.spotify.com/episode/7C4D2P07il3VIMYJ4FjG4t',
     date: '04/Fev/2022',
     duration: '32 min 05 seg',
@@ -185,7 +185,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep20',
-    title: 'Ep20 Relógio GPS. O acessório essencial ao atleta(?)',
+    title: 'Relógio GPS. O acessório essencial ao atleta(?)',
     url: 'https://open.spotify.com/episode/57KN6eQzN8AIRoGGa0Qakd',
     date: '11/Fev/2022',
     duration: '47 min',
@@ -193,7 +193,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep21',
-    title: 'Ep21 Frio ou Calor? Qual você prefere?',
+    title: 'Frio ou Calor? Qual você prefere?',
     url: 'https://open.spotify.com/episode/54OJyPHTuccQEw2PV3Si2E',
     date: '18/Fev/2022',
     duration: '20 min 21 seg',
@@ -201,7 +201,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep22',
-    title: 'Ep22 Corrida e a Mente - com o Psicólogo José Anibal',
+    title: 'Corrida e a Mente - com o Psicólogo José Anibal',
     url: 'https://open.spotify.com/episode/3ytLJU7p2ZGnNYcKse6cNh',
     date: '25/Fev/2022',
     duration: '1 hr 03 min',
@@ -209,7 +209,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep23',
-    title: 'Ep23 Elas no Comando - com Roberta Arenare (Dia Internacional das Mulheres)',
+    title: 'Elas no Comando - com Roberta Arenare (Dia Internacional das Mulheres)',
     url: 'https://open.spotify.com/episode/0f9PDNY17L1GqoQXFxjKIf',
     date: '04/Mar/2022',
     duration: '1 hr 06 min',
@@ -217,7 +217,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep24',
-    title: 'Ep24 A Respiração na Corrida. Saiba como contornar desconfortos',
+    title: 'A Respiração na Corrida. Saiba como contornar desconfortos',
     url: 'https://open.spotify.com/episode/7dx7vDsGUEyh5Mw3FqLmHd',
     date: '11/Mar/2022',
     duration: '27 min 39 seg',
@@ -225,7 +225,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep25',
-    title: 'Ep25 - Alicino e Daniel contam 25 fatos de suas vidas',
+    title: 'Alicino e Daniel contam 25 fatos de suas vidas',
     url: 'https://open.spotify.com/episode/3NEzxPqvC6FMY8hd2C0HQM',
     date: '18/Mar/2022',
     duration: '36 min 35 seg',
@@ -233,7 +233,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep26',
-    title: 'Ep26 Conselhos que todo corredor deveria receber',
+    title: 'Conselhos que todo corredor deveria receber',
     url: 'https://open.spotify.com/episode/0s5eRMZNWXyQEVJIbFUhBW',
     date: '25/Mar/2022',
     duration: '40 min',
@@ -241,7 +241,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep27',
-    title: 'Ep27 Corridas e Viagens',
+    title: 'Corridas e Viagens',
     url: 'https://open.spotify.com/episode/7bNxTZYeQ2xfOHtNgaIEEN',
     date: '01/Abr/2022',
     duration: '27 min 38 seg',
@@ -249,7 +249,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep28',
-    title: 'Ep28 Vamos falar de 5 e 10km com Carlos Fisiologista',
+    title: 'Vamos falar de 5 e 10km com Carlos Fisiologista',
     url: 'https://open.spotify.com/episode/1LiSPYmx4Gq8ylFChevgiT',
     date: '08/Abr/2022',
     duration: '45 min 57 seg',
@@ -257,7 +257,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep29',
-    title: 'Ep29 Treinos e Exercícios para Corredores. Não ignore este benefício',
+    title: 'Treinos e Exercícios para Corredores. Não ignore este benefício',
     url: 'https://open.spotify.com/episode/0iIU39m2LPT4jZqrMbLNLf',
     date: '15/Abr/2022',
     duration: '34 min 33 seg',
@@ -265,7 +265,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep30',
-    title: 'Ep30 Sim, somos nós! O Corredor Amador. Muito prazer!',
+    title: 'Sim, somos nós! O Corredor Amador. Muito prazer!',
     url: 'https://open.spotify.com/episode/0RUi10VYl7UEFKHXaULdag',
     date: '22/Abr/2022',
     duration: '41 min 10 seg',
@@ -273,7 +273,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep31',
-    title: 'Ep31 O Tênis nosso de cada treino',
+    title: 'O Tênis nosso de cada treino',
     url: 'https://open.spotify.com/episode/53JEbY4l5oeYROdP8UvXMn',
     date: '30/Abr/2022',
     duration: '46 min 57 seg',
@@ -281,7 +281,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep32',
-    title: 'Ep32 Vamos treinar na esteira ou na rua?',
+    title: 'Vamos treinar na esteira ou na rua?',
     url: 'https://open.spotify.com/episode/0YCdGtbHOCDlzYpIh15sBv',
     date: '06/Mai/2022',
     duration: '28 min 59 seg',
@@ -289,7 +289,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep33',
-    title: 'Ep33 Vale a pena treinar através de uma Assessoria Esportiva?',
+    title: 'Vale a pena treinar através de uma Assessoria Esportiva?',
     url: 'https://open.spotify.com/episode/0vYdTMJmyLFMvwvm60fI1O',
     date: '13/Mai/2022',
     duration: '28 min 55 seg',
@@ -297,7 +297,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep34',
-    title: 'Ep34 Transferência do Treinamento Esportivo - com Davi Grass',
+    title: 'Transferência do Treinamento Esportivo - com Davi Grass',
     url: 'https://open.spotify.com/episode/2VYhdfepuguTvJrMkX3np8',
     date: '20/Mai/2022',
     duration: '1 hr',
@@ -305,7 +305,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep35',
-    title: 'Ep35 O Monstro da Corrida Eliud Kipchoge',
+    title: 'O Monstro da Corrida Eliud Kipchoge',
     url: 'https://open.spotify.com/episode/66TYjHbw1KziJ7W29VEFbQ',
     date: '27/Mai/2022',
     duration: '30 min 37 seg',
@@ -313,7 +313,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep36',
-    title: 'Ep36 Quando a fisioterapia é nossa esperança - com Marcelo Mutuberria',
+    title: 'Quando a fisioterapia é nossa esperança - com Marcelo Mutuberria',
     url: 'https://open.spotify.com/episode/0caQs0DDzEjiopEDYI2a3g',
     date: '03/Jun/2022',
     duration: '1 hr 06 min',
@@ -321,7 +321,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep37',
-    title: 'Ep37 Personal Trainer com Rogerio Rombaldi',
+    title: 'Personal Trainer com Rogerio Rombaldi',
     url: 'https://open.spotify.com/episode/18Bt2YPvLPwDrfNQKhr71C',
     date: '17/Jun/2022',
     duration: '57 min 15 seg',
@@ -329,7 +329,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep-extra',
-    title: 'Ep EXTRA - Desafio Daniel Rech. Informação aos participantes',
+    title: 'Desafio Daniel Rech. Informação aos participantes',
     url: 'https://open.spotify.com/episode/24alhCUKReQ4Vi7okyHLd5',
     date: '29/Jun/2022',
     duration: '11 min 02 seg',
@@ -337,7 +337,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep38',
-    title: 'Ep38 A Experiência do Mundial de Ironman com Fernando Camargo',
+    title: 'A Experiência do Mundial de Ironman com Fernando Camargo',
     url: 'https://open.spotify.com/episode/6U1dDBFuGMDMzKRbSjaWoh',
     date: '08/Jul/2022',
     duration: '56 min 11 seg',
@@ -345,7 +345,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep39',
-    title: 'Ep39 Vamos falar sobre Lactato - com Carlos Fisiologista',
+    title: 'Vamos falar sobre Lactato - com Carlos Fisiologista',
     url: 'https://open.spotify.com/episode/4zsq4E15lBVtGPOWErqI4d',
     date: '23/Ago/2022',
     duration: '1 hr 05 min',
@@ -353,7 +353,7 @@ export const episodes: Episode[] = [
   },
   {
     id: 'ep40',
-    title: 'Ep40 Tudo sobre Corrida em Trilhas - com Eduardo Marques',
+    title: 'Tudo sobre Corrida em Trilhas - com Eduardo Marques',
     url: 'https://open.spotify.com/episode/6XBHYF0t36fKKXtVEWomtT',
     date: '20/Set/2022',
     duration: '1 hr 16 min',
